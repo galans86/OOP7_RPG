@@ -2,20 +2,18 @@ package Hero;
 
 import Weapon.*;
 
-public class Archer extends HeroBase {
+public class Archer extends HeroBase<BowAndArrows> {
     //Лучник
     public BowAndArrows bowAndArrows;
 
-    public Archer(Weapon weapon) {
+    public Archer(BowAndArrows weapon) {
         super();
-        if (weapon instanceof BowAndArrows) {
-            this.bowAndArrows = (BowAndArrows) (weapon);
-        }
+        this.bowAndArrows = (BowAndArrows) (weapon);
     }
 
     @Override
-    public Weapon getWeapon() {
-        return (Weapon) (bowAndArrows);
+    public BowAndArrows getWeapon() {
+        return bowAndArrows;
     }
 
     @Override

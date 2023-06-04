@@ -2,20 +2,18 @@ package Hero;
 
 import Weapon.*;
 
-public class Swordsman extends HeroBase {
+public class Swordsman extends HeroBase<SwordAndShield> {
     //Мечник
     public SwordAndShield swordAndShield;
 
-    public Swordsman(Weapon weapon) {
+    public Swordsman(SwordAndShield weapon) {
         super();
-        if (weapon instanceof SwordAndShield) {
-            this.swordAndShield = (SwordAndShield) (weapon);
-        }
+        this.swordAndShield = weapon;
     }
 
     @Override
-    public Weapon getWeapon() {
-        return (Weapon) (swordAndShield);
+    public SwordAndShield getWeapon() {
+        return swordAndShield;
     }
 
     @Override

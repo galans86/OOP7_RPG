@@ -4,12 +4,11 @@ import Weapon.*;
 
 import java.util.Random;
 
-public abstract class HeroBase {
+public abstract class HeroBase <T extends Weapon>{
     //Герой(Персонаж)
     private int hp;
 
     public HeroBase() {
-        //Случайная величина от 500 до 1000
         Random rand = new Random();
         this.hp = 10 + rand.nextInt(90);
     }
@@ -25,11 +24,11 @@ public abstract class HeroBase {
         return hp;
     }
 
-    public void attack(Weapon weapon, HeroBase targetHero) {
+    public void attack(T weapon, HeroBase targetHero) {
         targetHero.takeDamage(weapon.getDamage());
     }
 
-    public abstract Weapon getWeapon();
+    public abstract T getWeapon();
     public abstract String getHeroName();
     public abstract String getInfo();
 }

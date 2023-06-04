@@ -2,19 +2,17 @@ package Hero;
 
 import Weapon.*;
 
-public class Magician extends HeroBase{
+public class Magician extends HeroBase<MagicSpell> {
     public MagicSpell magicSpell;
 
-    public Magician (Weapon weapon) {
+    public Magician(MagicSpell weapon) {
         super();
-        if (weapon instanceof MagicSpell) {
-            this.magicSpell = (MagicSpell) (weapon);
-        }
+        this.magicSpell = weapon;
     }
 
     @Override
-    public Weapon getWeapon() {
-        return (Weapon) (magicSpell);
+    public MagicSpell getWeapon() {
+        return magicSpell;
     }
 
     @Override
@@ -24,6 +22,6 @@ public class Magician extends HeroBase{
 
     @Override
     public String getInfo() {
-        return this.getHeroName() + " HP " + this.getHp() + this.magicSpell.getInfo() ;
+        return this.getHeroName() + " HP " + this.getHp() + this.magicSpell.getInfo();
     }
 }
